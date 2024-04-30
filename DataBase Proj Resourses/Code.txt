@@ -1,0 +1,89 @@
+
+CREATE TABLE `Building` (
+  `ID` int not null,
+  `Abbr` char(255),
+  `Title` char(255),
+  primary key(ID)
+);
+
+CREATE TABLE `Room` (
+  `ID` int not null,
+  `Number` char(255),
+  primary key(ID)
+);
+
+CREATE TABLE `Semster` (
+  `ID` int not null,
+  `Year` int,
+  `Term` ENUM('Fall','Winter', 'Spring', 'Summer'),
+  primary key(ID)
+);
+
+CREATE TABLE `Course` (
+  `ID` int not null,
+  `Abbr` char(255),
+  `Title` char(255),
+  `Units` int,
+  `Description` Text,
+  `ID_Semster` int,
+  primary key(ID),
+  FOREIGN KEY (`ID_Semster`) REFERENCES `Semster`(`ID`)
+);
+
+CREATE TABLE `Prerequisite` (
+  `ID_Original` int,
+  `ID_Required` int,
+  FOREIGN KEY (`ID_Original`) REFERENCES `Course`(`ID`),
+  FOREIGN KEY (`ID_Required`) REFERENCES `Course`(`ID`),
+  constraint PK_Requirements primary key(ID_Original, ID_Required)
+);
+
+CREATE TABLE `Instructor` (
+  `ID` int not null,
+  `First_Name` char(255),
+  `Last_Name` char(255),
+  `Email` char(255),
+   primary key(ID)
+);
+
+CREATE TABLE `Section` (
+  `ID` int not null,
+  `ID_Course` int,
+  `ID_Room` int,
+  `ID_Building` int,
+  `ID_Instructor` int,
+  `Start_Time` Time,
+  `End_Time` Time,
+  `Days` int,
+  `Max_Cap` int,
+  `Max_Wait` int,
+  FOREIGN KEY (`ID_Room`) REFERENCES `Room`(`ID`),
+  FOREIGN KEY (`ID_Instructor`) REFERENCES `Instructor`(`ID`),
+  FOREIGN KEY (`ID_Course`) REFERENCES `Course`(`ID`),
+  FOREIGN KEY (`ID_Building`) REFERENCES `Building`(`ID`),
+  primary key(ID)
+);
+
+CREATE TABLE `Student` (
+  `ID` int not null,
+  `Last_Name` char(255),
+  `First_Name` char(255),
+  primary key(ID)
+);
+
+CREATE TABLE `Registration_List` (
+  `ID_Section` int,
+  `ID_Student` int,
+  `Date_of_Entry` DateTime,
+  FOREIGN KEY (`ID_Section`) REFERENCES `Section`(`ID`),
+  FOREIGN KEY (`ID_Student`) REFERENCES `Student`(`ID`),
+  constraint PK_Registration primary key(ID_Section, ID_Student)
+);
+
+CREATE TABLE `Room_with_Building` (
+  `ID_Room` int,
+  `ID_Building` int,
+  FOREIGN KEY (`ID_Building`) REFERENCES `Building`(`ID`),
+  FOREIGN KEY (`ID_Room`) REFERENCES `Room`(`ID`),
+   constraint PK_Registration primary key(ID_Room, ID_Building)
+);
