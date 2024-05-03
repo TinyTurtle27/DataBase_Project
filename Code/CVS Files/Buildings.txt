@@ -1,0 +1,46 @@
+AD Administration
+AF Auto Fleet Services
+AH Animal House/ Vivarium
+AR Academic Research
+AS Administrative Services
+AV Arrowhead Village Housing
+BI Biological Sciences
+BK Coyote Bookstore
+CC Children's Center
+CCD Coyote Commons
+CE College of Education
+CH Chaparral Hall
+CS Chemical Sciences
+CV Coyote Village
+DD Univ. Center for Developmental Disabilities
+ES Environ. Health & Safety
+FM Facilities Planning & Mgmt.
+FO Faculty Office Building
+HA HVAC Central Plant
+HC Student Health Center
+HP Health & PE Complex/Coussoulis Arena
+IC Information Centers
+JB Jack H. Brown Hall
+MC Meeting Center
+OB Murillo Family Observatory
+PA Performing Arts/ Theatre/ Recital Hall
+PE Physical Education
+PK1 Parking Structure West
+PK2 Parking Structure East
+PL John M. Pfau Library
+PS Physical Sciences
+PW Plant/Central Warehouse
+RF Student Rec. & Wellness Ctr.
+SB Social & Behavioral Sciences
+SH Sierra Hall
+SU Santos Manuel Student Union
+SV Serrano Village
+TC Temp. Classrooms
+TK Temp. Kinesiology Annex
+TO Temp. Offices
+UE University Enterprises
+UH University Hall
+UP University Police
+UV University Village
+VA Visual Arts Center/Robert & Frances Fullerton Museum of Art
+YC Yasuda Ctr. for Ext. Learning
