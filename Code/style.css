@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.Registered.Classes{
+    display:flex;
+    align-items:center;
+    padding: 1em 2vw;
+    margin: 1em 2vw;
+}
+
+.outer.table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color:aliceblue;
+    color: black;
+}
+
+caption, th{
+    text-align: left;
+}
+
+th {
+    background-color: azure;
+}
+
+caption {
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+th, td {
+    padding: 1rem;
+}
