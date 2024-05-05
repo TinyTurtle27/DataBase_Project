@@ -51,8 +51,8 @@ for department in All_Deparments: # for each  department
 courses = []
 course = {}
 for index in range(0, len(course_number)):
-    course.update({'Department': Course_deparment[index]})
-    course.update({'Number': course_number[index]})
+    course.update({"ID": index + 1})
+    course.update({'Abbr': str(Course_deparment[index]) + " " + str(course_number[index])})
     course.update({'Title': Course_title[index]})
     course.update({'Units': course_units[index]})
     course.update({'Description': course_desrption[index]})
@@ -60,9 +60,9 @@ for index in range(0, len(course_number)):
     course = {}
 
 filename_csv = "../CSV Files/Courses.csv"
-attributes = ["Department", "Number", "Title", "Units", "Description"]
+attributes = ["ID", "Abbr", "Title", "Units", "Description"]
 
-with open(r'/Code/CSV Files/Courses.csv', 'w') as csvfile:
+with open(r'C:/Users/ORA PC/Desktop/Repos/DataBase_Project/Code/CSV/CSV Files/Courses.csv', 'w') as csvfile:
     writer = csv.DictWriter(csvfile, attributes, delimiter="|")
     writer.writeheader()
     writer.writerows(courses)
@@ -70,11 +70,6 @@ with open(r'/Code/CSV Files/Courses.csv', 'w') as csvfile:
 
 
 
-    # Course_deparment = []
-    # course_number = []
-    # Course_title = []
-    # course_units = []
-    # course_desrption = []
 
 
     # get all the courses title + abbr + number
