@@ -59,10 +59,10 @@ for index in range(0, len(course_number)):
     courses.append(course)
     course = {}
 
-filename_csv = "Courses.csv"
+filename_csv = "../CSV Files/Courses.csv"
 attributes = ["Department", "Number", "Title", "Units", "Description"]
 
-with open(r'C:/Users/ORA PC/Desktop/Repos/DataBase_Project/Code/CVS Files/Courses.csv', 'w') as csvfile:
+with open(r'/Code/CSV Files/Courses.csv', 'w') as csvfile:
     writer = csv.DictWriter(csvfile, attributes, delimiter="|")
     writer.writeheader()
     writer.writerows(courses)

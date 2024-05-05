@@ -1,7 +1,7 @@
 import csv
 import re
 
-filename = "Buildings.txt"
+filename = "Text Files/Buildings.txt"
 ID = 1
 
 dataset = []
@@ -23,7 +23,7 @@ with open(filename) as file:
         dataset.append(row)
         row = {}
 
-filename_csv = "Buildings.csv"
+filename_csv = "../CSV Files/Buildings.csv"
 
 with open(filename_csv, 'w') as csvfile:
     writer = csv.DictWriter(csvfile, attributes, delimiter="|")
