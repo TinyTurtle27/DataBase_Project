@@ -14,7 +14,7 @@ dataset = []
 CSV_rows = {}
 for index in range(1, 50):
     CSV_rows.update({"ID_Student": index})
-    item = random.choice(range(0, 120000))
+    item = random.choice(range(1, 120000))
     CSV_rows.update({"ID_Section": int(item)})
     year = random.choice(range(2020,2025))
     day = random.choice(range(1,25))
@@ -25,14 +25,18 @@ for index in range(1, 50):
     strin = str(year) + "-" + str(month) + "-" + str(day) + " " + str(hour) + ":" + str(min) + ":00"
     CSV_rows.update({"Date_of_Entry": strin})
     dataset.append(CSV_rows)
+    CSV_rows = {}
     year = random.choice(range(2020, 2025))
     day = random.choice(range(1, 25))
     month = random.choice(range(1, 11))
     hour = random.choice(range(1, 23))
     min = random.choice(range(1, 59))
 
+    CSV_rows.update({"ID_Student": index})
+
     strin = str(year) + "-" + str(month) + "-" + str(day) + " " + str(hour) + ":" + str(min) + ":00"
-    CSV_rows.update({"ID_Section": int(item) + 50})
+    item = random.choice(range(1, 120000))
+    CSV_rows.update({"ID_Section": int(item)})
     CSV_rows.update({"Date_of_Entry": strin})
     dataset.append(CSV_rows)
     CSV_rows = {}
