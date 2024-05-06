@@ -1,0 +1,44 @@
+	.search-form {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-rows: 25px 25px 25px 25px 25px 25px 25px 25px 25px;
+		grid-gap: 5px;
+		align-items: center;
+	}
+
+	.search-form p {
+		justify-self: end;
+		padding: 5px;
+	}
+
+	.search-form .checkboxes {
+		display: flex;
+		flex-direction: row;
+		grid-column: 2 / span 2;
+	}
+
+	.form-buttons {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-end;
+	}
+
+	.search-form .skipgrid-2 {
+		grid-column-end: span 2;
+	}
+
+	.search-form .skipgrid-3 {
+		grid-column-end: span 3;
+	}
+
+	section {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		flex: 0.6;
+	}
+
+	h1 {
+		width: 100%;
+	}
