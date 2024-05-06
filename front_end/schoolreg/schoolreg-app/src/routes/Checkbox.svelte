@@ -2,8 +2,12 @@
     export let textlabel = '';
     let isChecked = false;
 
+    import { createEventDispatcher } from 'svelte';
+    const dispatch = createEventDispatcher()
+
     function toggleCheckbox() {
         isChecked = !isChecked;
+        dispatch('update', {textlabel, isChecked});
     }
 </script>
 
