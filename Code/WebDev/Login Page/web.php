@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include("trash.php");
+    include("Connect.php");
 ?>
 
 <!DOCTYPE html>
@@ -31,20 +31,10 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>testing</td>
                     <td>
-                        <?php
-                            $query = $pdo->query('select * from student');
-                            $data = $query->fetchAll(PDO::FETCH_NUM);
-                            if ($data) {
-                                echo $data[0][2];
-                            } else { 
-                                ?>
-                                NA
-                                <?php
-                            }
-
-                        ?>
+                    </td>
+                    <td>
+    
                     </td>
                     <td>
                         <table border="True">
