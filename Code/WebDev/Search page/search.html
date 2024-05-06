@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<body>
+    <!-- TODO search.php endpoint logic needed-->
+    <!-- TODO add name attribute to elements in form tag that don't have it so that submit button within form tag can record and pass them along-->
+    <form id="course-search" action="/search-results.php" method="post">
+        <div class="search-form">
+            <p>Subject</p>
+            <div class="skipgrid-2">
+                <select id="selectedsubject"></select>
+            </div>
+        </div>
+
+        <p>Start Time</p>
+        <select id="startselectedcomparison"></select>
+        <input type="text" id="start_time" placeholder="5:00AM" maxlength="7">
+
+        <p>End Time</p>
+        <select id="endselectedcomparison"></select>
+        <input type="text" id="end_time" placeholder="10:00PM" maxlength="7">
+
+        <p>Days of the week</p>
+            <div class="skipgrid-2">
+            <select id="selectedgrouping"></select>
+        </div>
+
+        <div class="checkboxes" id="checkboxes"></div>
+        <input type="hidden" name="selectedDays" id="selectedDays">
+
+        <p>Instructor's Last Name</p>
+        <div class="skipgrid-2">
+            <select id="selectednamefilter"></select>
+            <input type="text" id="instructor_lastname" placeholder="Howlader" maxlength="50">
+        </div>
+
+        <p>Campus</p>
+        <div class="skipgrid-2">
+            <select id="selectedcampus"></select>
+        </div>
+
+        <p>Instruction method</p>
+        <div class="skipgrid-2">
+            <select id="selectedinstructionmethod"></select>
+        </div>
+
+        <button type="submit">Search</button>
+    </form>
+
+    <!-- NOTE: reference the path where you play search.js-->
+    <script src="js/search.js"></script>
+</body>
