@@ -1,29 +1,19 @@
 <script>
-    export let givenoptions = []; 
-    export let widthvalue = '250';
-//    export let selectedValue = '';
+    export let givenoptions = []; //MAKE SURE TO PASS IN AN ARRAY OF OBJECTS (key, display)
+    export let selectedoption = ''; //default selected object 
+    export let widthvalue = '250'; //default select component width
 
- //   let isOpen = false;
-
-    // Emits a 'select' event with the chosen value when an option is clicked
-//    const handleSelect = (value) => {
-//        selectedValue = value; 
-//        isOpen = false;
-//        // Dispatch the event for the parent component to listen to
-//        dispatch('select', value);
-//    } 
+    $: console.log(selectedoption)
 </script>
 
-<select class="form-select" style="width: {widthvalue}px;">
+<select class="form-select" style="width: {widthvalue}px;" bind:value={selectedoption}>
     {#each givenoptions as option}
-        <option value={option}>{option}</option>
+        <option value={option.key}>{option.display}</option>
     {/each}
 </select>
 
 <style>
     .form-select {
         height: 20px;
-        /* Basic styling goes here */
     }
-/* Basic styling goes here */ 
 </style>
