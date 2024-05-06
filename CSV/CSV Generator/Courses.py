@@ -51,35 +51,19 @@ for department in All_Deparments: # for each  department
 courses = []
 course = {}
 for index in range(0, len(course_number)):
-    course.update({"ID": index + 1})
-    course.update({'Abbr': str(Course_deparment[index]) + " " + str(course_number[index])})
+    course.update({"ID": Course_deparment[index] + str(course_number[index])})
+    course.update({'Department': Course_deparment[index]})
+    course.update({'Num': course_number[index]})
     course.update({'Title': Course_title[index]})
     course.update({'Units': course_units[index]})
     course.update({'Description': course_desrption[index]})
     courses.append(course)
     course = {}
 
-filename_csv = "../CSV Files/Courses.csv"
-attributes = ["ID", "Abbr", "Title", "Units", "Description"]
+filename_csv = r"C:\Users\ORA PC\Desktop\Repos\DataBase_Project\CSV\CSV Files\Courses.csv"
+attributes = ["ID", "Department","Num", "Title", "Units", "Description"]
 
-with open(r'C:/Users/ORA PC/Desktop/Repos/DataBase_Project/Code/CSV/CSV Files/Courses.csv', 'w') as csvfile:
+with open(filename_csv, 'w') as csvfile:
     writer = csv.DictWriter(csvfile, attributes, delimiter="|")
     writer.writeheader()
     writer.writerows(courses)
-
-
-
-
-
-
-    # get all the courses title + abbr + number
-    # courses_des = soup.find_all("p", {"class", "courseblockdesc"})
-# Abbr char(255)
-# Title char(255)
-# Units int
-# Description text
-# ID_Semster int
-
-    # test = soup.find_all("a", class_='bubblelink code')
-    # for txt in test:
-    #     print(txt.text)

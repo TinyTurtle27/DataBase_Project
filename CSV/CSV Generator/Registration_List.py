@@ -12,7 +12,7 @@ dataset = [{"ID_Section": 1, "ID_Student": 1, "Date_of_Entry": "1000-01-01 00:00
            ]
 
 filename = 'Registration_List.csv'
-path = 'C:/Users/ORA PC/Desktop/Repos/DataBase_Project/Code/CSV/CSV Files/'
+path = '/CSV/CSV Files/'
 
 with open(path + filename, 'w') as csvfile:
     writer = csv.DictWriter(csvfile, attributes, delimiter="|")

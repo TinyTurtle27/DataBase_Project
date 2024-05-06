@@ -3,12 +3,11 @@ from random import randrange
 import csv
 from random import choice
 
-filenames = ['Buildings.csv', "Room_with_Building.csv", 'Courses.csv', 'Instructor.csv']
-path = 'C:/Users/ORA PC/Desktop/Repos/DataBase_Project/Code/CSV/CSV Files/'
+filenames = [r'\Room.csv.csv', r'\Courses.csv', r'\Instructor.csv']
+path = r'C:\Users\ORA PC\Desktop\Repos\DataBase_Project\CSV\CSV Files'
 Delimiter = '|'
 
-ID_building = []
-ID_rooms_with_buildings = []
+ID_Rooms = []
 ID_Courses = []
 ID_instructor = []
 
@@ -17,12 +16,10 @@ for index in range(0, len(filenames)):
         reader = csv.DictReader(csvfile, delimiter=Delimiter)
         for row in reader:
             if index == 0:
-                ID_building.append(row['ID'])
+                ID_Rooms.append(row['ID'])
             if index == 1:
-                ID_rooms_with_buildings.append(row)
-            if index == 2:
                 ID_Courses.append(row['ID'])
-            if index == 3:
+            if index == 2:
                 ID_instructor.append(row['ID'])
 
 CSV_row = {}
@@ -53,7 +50,7 @@ for index in range(0, len(ID_Courses)):
         ID += 1
 
 
-path = 'C:/Users/ORA PC/Desktop/Repos/DataBase_Project/Code/CSV/CSV Files/'
+path = '/CSV/CSV Files/'
 Delimiter = '|'
 
 filename_csv = "Section.csv"

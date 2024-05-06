@@ -25,7 +25,7 @@ for term in Term:
         index += 1
 
 filename = 'Semster.csv'
-path = 'C:/Users/ORA PC/Desktop/Repos/DataBase_Project/Code/CSV/CSV Files/'
+path = '/CSV/CSV Files/'
 
 with open(path + filename, 'w') as csvfile:
     writer = csv.DictWriter(csvfile, attributes, delimiter="|")

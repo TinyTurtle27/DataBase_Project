@@ -26,7 +26,7 @@ for department in All_Deparments: # for each  department
     courses_in_dep = soup.find_all("span", {"class", "coursetitle"})  # department / #  title
     for course in courses_in_dep:
         number = re.findall(r'\d+', course.text)  # course number
-        course_abbr.append(department + " " + str(number[0]))
+        course_abbr.append(department + str(number[0]))
 
     test = soup.find_all("p", {'class', 'courseblockdesc'})
     for txt in test:
@@ -40,14 +40,14 @@ for department in All_Deparments: # for each  department
                 number = re.findall(r'\d+', text.text)
                 if len(abr) == 0 or len(number) == 0:
                     break
-                CSV_rows.update({"ID_Required": str(abr[0]) + " " + str(number[0])})
+                CSV_rows.update({"ID_Required": str(abr[0]) + str(number[0])})
                 dataset.append(CSV_rows)
                 CSV_rows = {}
 
 
 attributes = ["ID_Original", "ID_Required"]
-filename = 'Prerequisite.csv'
-path = 'C:/Users/ORA PC/Desktop/Repos/DataBase_Project/Code/CSV/CSV Files/'
+filename = r'\Prerequisite.csv'
+path = r'C:\Users\ORA PC\Desktop\Repos\DataBase_Project\CSV\CSV Files'
 
 with open(path + filename, 'w') as csvfile:
     writer = csv.DictWriter(csvfile, attributes, delimiter="|")

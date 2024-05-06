@@ -39,7 +39,7 @@ for index in range(0, len(First_name)):
 
 attributes = ["ID", "First_Name", "Last_Name", "Email"]
 
-with open(r'/Code/CSV Files/Instructor.csv', 'w') as csvfile:
+with open(r'C:\Users\ORA PC\Desktop\Repos\DataBase_Project\CSV\CSV Files\Instructor.csv', 'w') as csvfile:
     writer = csv.DictWriter(csvfile, attributes, delimiter="|")
     writer.writeheader()
     writer.writerows(CSV_rows)
