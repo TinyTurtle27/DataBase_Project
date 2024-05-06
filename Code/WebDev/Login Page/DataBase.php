@@ -71,45 +71,47 @@ class DataBase
         $returned = array();
         $result = mysqli_stmt_get_result($this->sql);
         if (mysqli_num_rows($result) > 0) {
-            echo mysqli_num_rows($result);
-            $entry = array("Title"=>"Default", "Instructor"=>"Default", "Meeting"=>"Default");
-            if($row = mysqli_fetch_assoc($result)) {
-                echo 1;
+            $entry = array("Title"=>"Default", "Instructor"=>"Default", "Meeting"=>"Default", "other"=>"Default");
+            foreach ($result as $row) {
+                    
+                    // 
+                    $sql_t = "select * from Section where ID=?";
+                    mysqli_stmt_prepare($this->sql, $sql_t);
+
+                    mysqli_stmt_bind_param($this->sql,"s", $row["ID_Section"]);
+
+                    mysqli_stmt_execute($this->sql);
+                    $result = mysqli_stmt_get_result($this->sql);
+                    $sec = mysqli_fetch_assoc($result);
+                    $entry["Meeting"] = strval($sec["Start_Time"] . "-". strval($sec["End_Time"]));
+
+
+                    // title 
+                    $sql_t = "select * from course where ID=?";
+                    mysqli_stmt_prepare($this->sql, $sql_t);
+
+                    mysqli_stmt_bind_param($this->sql,"s", $sec['ID_Course']);
+
+                    mysqli_stmt_execute($this->sql);
+                    $result = mysqli_stmt_get_result($this->sql);
+                    $course = mysqli_fetch_assoc($result);
+                    $entry["Title"] = $course["Department"] .':'.strval($course["Num"]).'(' . strval($sec['ID']) .')  '. strval($course["Title"]);
+                    echo strval($course["Department"]). 'hello';
+
+                    // intercturo
+                    $sql_t = "select * from Instructor where ID=?";
+                    mysqli_stmt_prepare($this->sql, $sql_t);
+                    mysqli_stmt_bind_param($this->sql,"s", $sec['ID_Instructor']);
+
+                    mysqli_stmt_execute($this->sql);
+                    $result = mysqli_stmt_get_result($this->sql);
+                    $Instructor = mysqli_fetch_assoc($result);
+                    $entry["Instructor"] = strval($Instructor["First_Name"]) . " " . strval($Instructor["Last_Name"]);
+                    
+                    // addition
+
+                    $returned[] = $entry;
                 
-                // nothing
-                $sql_t = "select * from Section where ID=?";
-                mysqli_stmt_prepare($this->sql, $sql_t);
-
-                mysqli_stmt_bind_param($this->sql,"s", $row["ID_Section"]);
-
-                mysqli_stmt_execute($this->sql);
-                $result = mysqli_stmt_get_result($this->sql);
-                $sec = mysqli_fetch_assoc($result);
-
-                // title 
-                $sql_t = "select * from Course where ID=?";
-                mysqli_stmt_prepare($this->sql, $sql_t);
-
-                mysqli_stmt_bind_param($this->sql,"s", $sec['ID_Course']);
-
-                mysqli_stmt_execute($this->sql);
-                $result = mysqli_stmt_get_result($this->sql);
-                $course = mysqli_fetch_assoc($result);
-                $entry["Title"] = strval($course["Title"]);
-
-                // intercturo
-                $sql_t = "select * from Instructor where ID=?";
-                mysqli_stmt_prepare($this->sql, $sql_t);
-                mysqli_stmt_bind_param($this->sql,"s", $sec['ID_Instructor']);
-
-                mysqli_stmt_execute($this->sql);
-                $result = mysqli_stmt_get_result($this->sql);
-                $Instructor = mysqli_fetch_assoc($result);
-                $entry["Instructor"] = strval($Instructor["First_Name"]);
-                
-                // addition
-
-                $returned[] = $entry;
             }
             return $returned;
    
@@ -117,4 +119,5 @@ class DataBase
     }
         
     }
+
 ?>

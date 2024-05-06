@@ -32,16 +32,17 @@
         </tr>
         </thead>
         <tbody>
-            <tr>
+
                 <?php
                     foreach ($result as $row){
                         ?>
+                        <tr>
                         <td><?php echo $row["Title"]?></td>
                         <td><?php echo $row["Instructor"]?></td>
                         
                         <td><?php echo $row["Meeting"] ?></td>
-                        <td><?php echo "w" ?></td>
-                        <td><button>DROP</button></td>
+                        <td><?php echo "Registered" ?></td>
+                        <td><button action="#" name=>DROP</button></td>
                 <?php
                     }
                 ?>
@@ -51,5 +52,6 @@
         <tbody>
     </table>
 </div>
+<button class="btn-register" onclick="window.location.href = 'search.html';">Register for Courses</button >
 </body>
 </html>

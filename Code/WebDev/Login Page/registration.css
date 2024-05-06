@@ -17,6 +17,14 @@ h2{
     padding: 20px 30px 0px 70px;
 }
 
+.btn-register {
+    display: flex;
+    text-align: left;
+    align-items: center;
+    padding: 20px 10px 10px 20px;
+}
+
+
 /* Table Styles */
 
 .table-wrapper{
