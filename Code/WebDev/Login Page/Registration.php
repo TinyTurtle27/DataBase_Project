@@ -25,6 +25,7 @@
         <thead>
         <tr>
             <th>Title</th>
+            <th>Location</th>
             <th>Instructor</th>
             <th>Meeting Time(s)</th>
             <th>Status</th>
@@ -38,6 +39,7 @@
                         ?>
                         <tr>
                         <td><?php echo $row["Title"]?></td>
+                        <td><?php echo $row["Location"]?></td>
                         <td><?php echo $row["Instructor"]?></td>
                         
                         <td><?php echo $row["Meeting"] ?></td>

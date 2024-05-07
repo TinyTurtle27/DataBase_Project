@@ -71,7 +71,7 @@ class DataBase
         $returned = array();
         $result = mysqli_stmt_get_result($this->sql);
         if (mysqli_num_rows($result) > 0) {
-            $entry = array("Title"=>"Default", "Instructor"=>"Default", "Meeting"=>"Default", "other"=>"Default");
+            $entry = array("Title"=>"Default", "Instructor"=>"Default", "Meeting"=>"Default", "Location"=>"Default");
             foreach ($result as $row) {
                     
                     // 
@@ -83,7 +83,36 @@ class DataBase
                     mysqli_stmt_execute($this->sql);
                     $result = mysqli_stmt_get_result($this->sql);
                     $sec = mysqli_fetch_assoc($result);
-                    $entry["Meeting"] = strval($sec["Start_Time"] . "-". strval($sec["End_Time"]));
+                    
+                    $entry["Meeting"] = strval("M TH - ".$sec["Start_Time"] . "-". strval($sec["End_Time"]));
+
+                    
+                    
+                    
+                    
+                    $room = $sec["ID_Room"];
+                    $sql_t = "select * from Room where ID=?";
+                    mysqli_stmt_prepare($this->sql, $sql_t);
+
+                    mysqli_stmt_bind_param($this->sql,"s", $room);
+
+                    mysqli_stmt_execute($this->sql);
+                    $result = mysqli_stmt_get_result($this->sql);
+                    $rom = mysqli_fetch_assoc($result);
+
+                    
+                    $sql_t = "select * from Building where ID=?";
+                    mysqli_stmt_prepare($this->sql, $sql_t);
+
+                    mysqli_stmt_bind_param($this->sql,"s", $rom['ID_Building']);
+
+                    mysqli_stmt_execute($this->sql);
+                    $result = mysqli_stmt_get_result($this->sql);
+                    $bui = mysqli_fetch_assoc($result);
+
+                    $entry["Location"] = "Rom: " . $rom['Number'] . " IN ". $bui["Title"];
+
+
 
 
                     // title 
@@ -95,8 +124,7 @@ class DataBase
                     mysqli_stmt_execute($this->sql);
                     $result = mysqli_stmt_get_result($this->sql);
                     $course = mysqli_fetch_assoc($result);
-                    $entry["Title"] = $course["Department"] .':'.strval($course["Num"]).'(' . strval($sec['ID']) .')  '. strval($course["Title"]);
-                    echo strval($course["Department"]). 'hello';
+                    $entry["Title"] = $course["Department"] .':'.strval($course["Num"]).' (' . strval($sec['ID']) .')     '. strval($course["Title"]);
 
                     // intercturo
                     $sql_t = "select * from Instructor where ID=?";

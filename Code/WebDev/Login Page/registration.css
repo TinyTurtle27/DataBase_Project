@@ -5,8 +5,9 @@
 }
 body{
     font-family: Helvetica;
+    background: url('the3.jpg') no-repeat;
     -webkit-font-smoothing: antialiased;
-    background: #F6F6F6;
+ 
 }
 h2{
     text-align: left;
